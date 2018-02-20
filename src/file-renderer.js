@@ -12,6 +12,10 @@ export default class FileRenderer {
   render(level, origin, message) {
     const timeDate = new Date().toUTCString();
     const log = `${timeDate} - [${level}] ${origin}:\n${message}\n\n`;
-    fs.appendFileSync(this.file, log);
+    try {
+      fs.appendFileSync(this.file, log);
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
