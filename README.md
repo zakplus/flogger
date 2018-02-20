@@ -1,11 +1,12 @@
 # Flogger
 ## A ready to use - zero conf - logger
+<img src="logo.jpg" style="height: 150px; width: auto; margin-right: 1rem">
 
 ### Install
 ```npm install --save 'flogger-log'```
 
 ### Basic usage
-<img src="logo.jpg" style="float: left; height: 10rem; width: auto; margin-right: 1rem">
+
 
 ```javascript
 import Flogger from 'flogger-log';
