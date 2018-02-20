@@ -1,5 +1,5 @@
 {
-  "name": "flogger",
+  "name": "flogger-log",
   "version": "1.0.0",
   "description": "A ready to use - zero conf - logger",
   "main": "lib/index.js",

@@ -1,10 +1,14 @@
 # Flogger
 ## A ready to use - zero conf - logger
 
+### Install
+```npm install --save 'flogger-log'```
+
+### Basic usage
 <img src="logo.jpg" style="float: left; height: 10rem; width: auto; margin-right: 1rem">
 
 ```javascript
-import Flogger from 'flogger';
+import Flogger from 'flogger-log';
 
 const flog = new Flogger();
 flog.$debug('Something important');
@@ -18,7 +22,7 @@ You can change log levels (defaults are **debug**, **info**, **warning** and **e
 The FileRenderer renderer, which saves events to file, is shipped with this package.
 
 ```javascript
-import { Flogger, FileRenderer } from 'flogger';
+import { Flogger, FileRenderer } from 'flogger-log';
 
 // Use the shipped FileRenderer for saving log to file.
 const flog = new Flogger({
