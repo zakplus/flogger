@@ -20,7 +20,7 @@ flog.$error('Watch out!');
 
 ## And it's customizable too!
 You can change log levels (defaults are **debug**, **info**, **warning** and **error**) and how events are recorded passing options to Flogger constructor.  
-The FileRenderer renderer, which saves events to file, is shipped with this package.
+The FileRenderer renderer, which saves events to file, is shipped with this package.  
 
 ```javascript
 import { Flogger, FileRenderer } from 'flogger-log';
@@ -47,7 +47,18 @@ flog.log('hello', 'tic');
 flog.log('world', 'tac');
 ```
 
-## You can write your custom renderer too
+## Methods
+Every log level name will have a corresponding method exposed by the flog object. Calling one of these function will results in a corresponding log record to be stored by the renderer (according to your current log level).
+
+The methods are named '$' followed by the log level name and accept log data as the only argument.  
+
+example:  
+`flog.$debug(<data>)` for 'debug'  
+`flog.$foo(<data>)` for 'foo'
+
+The special method `log(levelName, data)` can be use in place of the '$' methods. It accepts the log level name as the first argument and the log data as the second argument.
+
+## You can write your custom renderer
 A flogger renderer is just a object exposing a "render" function.  
 The render function will receive three parameters, the level name, the origin of the event and the data passed to the log function.
 
@@ -65,6 +76,8 @@ export default {
 ```
 
 The console renderer is included in this package and it's the default one if you don't specify one in the Flogger constructor options.
+
+## Advanced renderers
 
 More advanced renderers could be written as classes accepting parameters in their constructors for fine-grained customization.
 
