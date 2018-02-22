@@ -60,16 +60,6 @@ export default class Flogger {
     }
   }
 
-  /*
-  setLevel(level) {
-    if (!Number.isInteger(level) || level < 0 || level > Object.keys(this.levels).length) {
-      throw new Error(`${level} is not a valid log level`);
-    }
-    this.level = level;
-  }
-  */
-
-  // setLevelName(name) {
   setLevel(name) {
     const level = this.levels[name];
     if (level !== undefined) {
@@ -79,13 +69,6 @@ export default class Flogger {
     }
   }
 
-  /*
-  getLevel() {
-    return this.level;
-  }
-  */
-
-  // getLevelName() {
   getLevel() {
     const names = Object.keys(this.levels);
     for (let i = 0; i < names.length; i += 1) {
