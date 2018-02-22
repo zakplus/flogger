@@ -60,7 +60,7 @@ The special method `log(levelName, data)` can be use in place of the '$' methods
 
 ## You can write your custom renderer
 A flogger renderer is just a object exposing a "render" function.  
-The render function will receive three parameters, the level name, the origin of the event and the data passed to the log function.
+The render function will receive three arguments, the level name, the origin of the event and the data passed to the log function.
 
 In the simplest case the renderer is really just a plain object with a function. This is how the console renderer is implemented:
 
@@ -79,7 +79,7 @@ The console renderer is included in this package and it's the default one if you
 
 ## Advanced renderers
 
-More advanced renderers could be written as classes accepting parameters in their constructors for fine-grained customization.
+More advanced renderers could be written as classes accepting options in their constructors for fine-grained customization.
 
 ## License
 
