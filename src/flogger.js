@@ -47,6 +47,7 @@ function readOptions(options) {
 
 export default class Flogger {
   constructor(options) {
+    this.level = 0;
     this.levels = {};
     this.renderer = consoleRenderer;
     readOptions.call(this, options);
