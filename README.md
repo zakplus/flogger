@@ -5,8 +5,10 @@
 ### Install
 ```npm install --save 'flogger-log'```
 
-### Basic usage
+### *New in 1.1.0:*
+Support for archiving log files when their size gets over a threshold was added to [FileRenderer](#FileRenderer).
 
+### Basic usage
 
 ```javascript
 import Flogger from 'flogger-log';
@@ -80,6 +82,55 @@ The console renderer is included in this package and it's the default one if you
 ## Advanced renderers
 
 More advanced renderers could be written as classes accepting options in their constructors for fine-grained customization.
+
+## <a name="FileRenderer"></a>File renderer
+The FileRenderer is a renderer for writing classic log files and it is shipped with this package.
+
+```javascript
+import { Flogger, FileRenderer } from 'flogger-log';
+
+const flog = new Flogger({
+  renderer: new FileRenderer(options)
+});
+```
+
+The file renderer constructor accepts this options argument:
+
+```javascript
+{
+  path,
+  fileSizeLimit,
+  fileSizeOverflowPolicy,
+  archiveNamesSorting,
+}
+```
+
+### path: `String`
+The log file path.
+
+### fileSizeLimit: `Integer >= 0, default: 0`
+The file size threshold limit in bytes.  
+When a log file size gets over this limit, on the next log function
+call the policy associated to the `fileSizeOverflowPolicy` option will
+be applied.  
+Set to 0 for "no limit".
+
+### fileSizeOverflowPolicy: `'archive' or 'overwrite', default: 'archive'`
+Policy to be applied when the log file gets over the value of
+fileSizeLimit option.  
+Set to `overwrite` for writing over the existing log file.  
+Set to `archive` to make archive copies of the log file.  
+When `archive` is used, the archived filename will be:
+
+`<log_filename_without_extension>_<suffix>.<log_filename_extension>`
+
+Where `suffix` is an integer between 1 and 10000.  
+By default newer archive files gets higher suffix number (descending order). You can change this behaviour with the `archiveNamesSorting` option.
+
+### archiveNamesSorting: `'descending' or 'ascending', default: 'descending'`
+The archiveNamesSorting change the way suffixes are assigned to archive file names.  
+Set to `descending` to assign higher suffix numbers to newer archive files.  
+Set to `ascending` to assign lower suffix numbers to newer archive files.  
 
 ## License
 

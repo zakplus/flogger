@@ -1,10 +1,13 @@
 {
   "name": "flogger-log",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A ready to use - zero conf - logger",
   "main": "lib/index.js",
   "scripts": {
-    "build": "eslint --fix src/**/*.js && rimraf lib && babel src -d lib"
+    "prebuild": "eslint --fix src/**/*.js",
+    "build": "rimraf lib && babel src -d lib",
+    "postbuild": "npm run test",
+    "test": "node ./test/flogger-test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -29,7 +32,11 @@
     "eslint": "^4.18.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "shelljs": "^0.8.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0",
+    "tmp": "0.0.33"
   },
   "dependencies": {
     "lodash": "^4.17.5"
