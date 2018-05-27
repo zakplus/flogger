@@ -11,7 +11,7 @@ function addLogLevel(level, name) {
 
 // Creates object default log functions and sets default log level
 function setDefaultLogFunctions() {
-  _(['debug', 'info', 'warning', 'error']).forEach((name, index) => {
+  _(['trace', 'debug', 'info', 'warning', 'error']).forEach((name, index) => {
     addLogLevel.call(this, index, name);
   });
   this.setLevel('debug');

@@ -5,9 +5,6 @@
 ### Install
 ```npm install --save 'flogger-log'```
 
-### *New in 1.1.0:*
-Support for archiving log files when their size gets over a threshold was added to [FileRenderer](#FileRenderer).
-
 ### Basic usage
 
 ```javascript
@@ -21,7 +18,7 @@ flog.$error('Watch out!');
 <div style="clear: left"></div>
 
 ## And it's customizable too!
-You can change log levels (defaults are **debug**, **info**, **warning** and **error**) and how events are recorded passing options to Flogger constructor.  
+You can change log levels (defaults are **trace**, **debug**, **info**, **warning** and **error**) and how events are recorded passing options to Flogger constructor.  
 The FileRenderer renderer, which saves events to file, is shipped with this package.  
 
 ```javascript
@@ -131,6 +128,11 @@ By default newer archive files gets higher suffix number (descending order). You
 The archiveNamesSorting change the way suffixes are assigned to archive file names.  
 Set to `descending` to assign higher suffix numbers to newer archive files.  
 Set to `ascending` to assign lower suffix numbers to newer archive files.  
+
+## <a name="ChangeLog"></a>ChangeLog
+* **1.2.0** | The *trace* level was added to the default ones.
+
+* **1.1.0** | Support for archiving log files when their size gets over a threshold was added to [FileRenderer](#FileRenderer).
 
 ## License
 
